@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: io.github.swiedenfeld
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [ annotation-api, app-name, http-client, java, java-application, jax-rs, junit, logback, maven, netty-server, reactor, reactor-http-client, readme, shade, yaml ]
