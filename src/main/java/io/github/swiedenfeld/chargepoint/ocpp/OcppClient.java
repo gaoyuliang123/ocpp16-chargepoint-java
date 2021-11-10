@@ -1,6 +1,6 @@
 package io.github.swiedenfeld.chargepoint.ocpp;
 
-import io.github.swiedenfeld.chargepoint.ocpp.messages.OcppCall;
+import io.github.swiedenfeld.chargepoint.ocpp.messages.OcppMessage;
 import io.github.swiedenfeld.chargepoint.ocpp.messages.OcppMessageFactory;
 import io.github.swiedenfeld.chargepoint.ws.OcppWebSocket;
 import io.micronaut.context.annotation.Property;
@@ -33,7 +33,7 @@ public class OcppClient {
 		sendOcppCall(factory.createBootNotification());
 	}
 	
-	private void sendOcppCall(OcppCall ocppCall) {
+	private void sendOcppCall(OcppMessage ocppCall) {
 		if (webSocketIsClosed()) {
 			openWebSocket();
 		}

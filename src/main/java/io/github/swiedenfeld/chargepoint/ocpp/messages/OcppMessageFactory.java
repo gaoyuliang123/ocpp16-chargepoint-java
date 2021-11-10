@@ -21,12 +21,12 @@ public class OcppMessageFactory {
 		this.chargePointModel = chargePointModel;
 	}
 	
-	public OcppCall createBootNotification() {
+	public OcppMessage createBootNotification() {
 		final int messageTypeId = 2;
 		final String uniqueId = String.valueOf(uniqueidCounter.getAndIncrement());
 		final String action = "BootNotification";
 		final Payload payload = new BootNotification(chargePointVendor, chargePointModel);
-		return new OcppCall(messageTypeId, uniqueId, action, payload);
+		return new OcppMessage(messageTypeId, uniqueId, action, payload);
 	}
 	
 }
