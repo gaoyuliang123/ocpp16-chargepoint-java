@@ -9,7 +9,7 @@ import jakarta.inject.Inject;
 @Controller("/chargepoint")
 public class RestController {
     
-    private OcppClient ocppClient;
+    private final OcppClient ocppClient;
     
     @Inject
     RestController(OcppClient ocppClient) {
