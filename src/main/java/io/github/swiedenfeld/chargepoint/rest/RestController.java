@@ -1,9 +1,9 @@
 package io.github.swiedenfeld.chargepoint.rest;
 
-import javax.ws.rs.core.Response;
 import io.github.swiedenfeld.chargepoint.ocpp.OcppClient;
+import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
 import jakarta.inject.Inject;
 
 @Controller("/chargepoint")
@@ -16,10 +16,10 @@ public class RestController {
         this.ocppClient = ocppClient;
     }
     
-    @Get("/boot")
-    public Response boot() {
+    @Post("/boot")
+    public HttpResponse<?> boot() {
         ocppClient.sendBootNotification();
-        return Response.ok().build();
+        return HttpResponse.ok();
     }
 
 }
