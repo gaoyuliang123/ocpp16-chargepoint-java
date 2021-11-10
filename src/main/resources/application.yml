@@ -1,3 +1,7 @@
 micronaut:
   application:
     name: ocpp16ChargepointJava
+
+chargepoint:
+  vendor: ACME
+  model: WALLBOX

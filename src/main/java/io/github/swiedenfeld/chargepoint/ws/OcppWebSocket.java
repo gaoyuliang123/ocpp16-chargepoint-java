@@ -1,5 +1,6 @@
 package io.github.swiedenfeld.chargepoint.ws;
 
+import io.github.swiedenfeld.chargepoint.ocpp.messages.OcppCall;
 import io.micronaut.websocket.annotation.ClientWebSocket;
 import io.micronaut.websocket.annotation.OnMessage;
 import io.micronaut.websocket.annotation.OnOpen;
@@ -19,6 +20,6 @@ public abstract class OcppWebSocket implements AutoCloseable {
         log.info("Received {}", message);
     }
 
-    public abstract void sendSync(String message);
+    public abstract void sendSync(OcppCall message);
 
 }
