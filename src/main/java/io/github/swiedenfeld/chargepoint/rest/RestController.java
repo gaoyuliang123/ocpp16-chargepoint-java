@@ -21,5 +21,11 @@ public class RestController {
         ocppClient.sendBootNotification();
         return HttpResponse.ok();
     }
+    
+    @Post("/authorize")
+    public HttpResponse<?> authorize() {
+        ocppClient.sendAuthorize();
+        return HttpResponse.ok();
+    }
 
 }

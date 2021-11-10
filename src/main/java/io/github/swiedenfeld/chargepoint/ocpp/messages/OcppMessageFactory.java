@@ -1,6 +1,7 @@
 package io.github.swiedenfeld.chargepoint.ocpp.messages;
 
 import java.util.concurrent.atomic.AtomicLong;
+import io.github.swiedenfeld.chargepoint.ocpp.messages.payload.Authorize;
 import io.github.swiedenfeld.chargepoint.ocpp.messages.payload.BootNotification;
 import io.micronaut.context.annotation.Value;
 import jakarta.inject.Inject;
@@ -22,11 +23,11 @@ public class OcppMessageFactory {
 	}
 	
 	public OcppMessage createBootNotification() {
-		final int messageTypeId = 2;
-		final String uniqueId = String.valueOf(uniqueidCounter.getAndIncrement());
-		final String action = "BootNotification";
-		final Payload payload = new BootNotification(chargePointVendor, chargePointModel);
-		return new OcppMessage(messageTypeId, uniqueId, action, payload);
+		return new OcppMessage(2, String.valueOf(uniqueidCounter.getAndIncrement()), "BootNotification", new BootNotification(chargePointVendor, chargePointModel));
+	}
+	
+	public OcppMessage createAuthorize() {
+		return new OcppMessage(2, String.valueOf(uniqueidCounter.getAndIncrement()), "Authorize", new Authorize("0fe673"));
 	}
 	
 }

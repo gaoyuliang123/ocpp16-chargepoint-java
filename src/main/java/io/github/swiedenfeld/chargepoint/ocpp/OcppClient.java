@@ -33,6 +33,10 @@ public class OcppClient {
 		sendOcppCall(factory.createBootNotification());
 	}
 	
+	public void sendAuthorize() {
+		sendOcppCall(factory.createAuthorize());
+	}
+	
 	private void sendOcppCall(OcppMessage ocppCall) {
 		if (webSocketIsClosed()) {
 			openWebSocket();

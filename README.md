@@ -7,3 +7,7 @@ Run `Application.java` and give VM parameter with url to Central System
 As soon as application started, you may send HTTP request in order to send a BootNotification to Central System
 
 ``POST http://localhost:8080/chargepoint/boot``
+
+Authorize
+
+``POST http://localhost:8080/chargepoint/authorize``

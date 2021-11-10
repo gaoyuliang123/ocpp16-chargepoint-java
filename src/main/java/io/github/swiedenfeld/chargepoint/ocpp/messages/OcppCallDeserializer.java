@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import io.github.swiedenfeld.chargepoint.ocpp.messages.payload.AuthorizeConf;
 import io.github.swiedenfeld.chargepoint.ocpp.messages.payload.BootNotificationConf;
 
 public class OcppCallDeserializer extends StdDeserializer<OcppMessage> {
@@ -30,8 +31,12 @@ public class OcppCallDeserializer extends StdDeserializer<OcppMessage> {
 		ocppCall.setAction(action.asText());
 		final JsonNode payload = node.get(3);
 		if ("BootNotification".equals(action.asText())) {
-			BootNotificationConf bootNotification = jp.getCodec().treeToValue(payload, BootNotificationConf.class);
-			ocppCall.setPayload(bootNotification);
+			BootNotificationConf bootNotificationConf = jp.getCodec().treeToValue(payload, BootNotificationConf.class);
+			ocppCall.setPayload(bootNotificationConf);
+		}
+		if ("Authorize".equals(action.asText())) {
+			AuthorizeConf authorizeConf = jp.getCodec().treeToValue(payload, AuthorizeConf.class);
+			ocppCall.setPayload(authorizeConf);
 		}
 		return ocppCall;
 	}
