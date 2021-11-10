@@ -1,21 +1,9 @@
-## Micronaut 3.1.3 Documentation
+# OCPP 1.6J Implementation (Charge Point)
 
-- [User Guide](https://docs.micronaut.io/3.1.3/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.1.3/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.1.3/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+Run `Application.java` and give VM parameter with url to Central System
 
----
+``-Durl=ws://localhost:8180/ws/CentralSystemService/CB4711``
 
-## Feature reactor documentation
+As soon as application started, you may send HTTP request in order to send a BootNotification to Central System
 
-- [Micronaut Reactor documentation](https://micronaut-projects.github.io/micronaut-reactor/snapshot/guide/index.html)
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-## Feature jax-rs documentation
-
-- [Micronaut JAX-RS support documentation](https://micronaut-projects.github.io/micronaut-jaxrs/latest/guide/index.html)
-
+``POST http://localhost:8080/chargepoint/boot``
